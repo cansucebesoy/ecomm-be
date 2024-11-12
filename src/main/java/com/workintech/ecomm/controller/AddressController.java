@@ -32,11 +32,6 @@ public class AddressController {
         return addressService.update(addressDTO);
     }
 
-    @GetMapping("/user/{userId}")
-    public List<AddressDTO> getByUserId(@PathVariable long userId){
-        return addressService.getByUserId(userId);
-    }
-
     @GetMapping("/{id}")
     public AddressDTO getById(@PathVariable long id){
         return addressService.getById(id);

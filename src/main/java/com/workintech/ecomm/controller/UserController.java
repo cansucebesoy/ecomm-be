@@ -1,7 +1,9 @@
 package com.workintech.ecomm.controller;
 
+import com.workintech.ecomm.dto.AddressDTO;
 import com.workintech.ecomm.dto.UserDTO;
 import com.workintech.ecomm.entity.User;
+import com.workintech.ecomm.service.AddressService;
 import com.workintech.ecomm.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import java.util.List;
 public class UserController {
 
     private UserService userService;
+
 
     @Autowired
     public UserController(UserService userService) {
@@ -44,6 +47,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public UserDTO update(@RequestBody UserDTO userDTO){
         return userService.update(userDTO);
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<AddressDTO> getUserAddresses(@PathVariable long userId){
+        return userService.getUserAddresses(userId);
     }
 
 }

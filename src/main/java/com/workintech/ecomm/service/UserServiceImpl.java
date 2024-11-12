@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final AddressService addressService;
 
     @Override
     public UserDTO save(UserDTO userDTO) {
@@ -50,5 +51,10 @@ public class UserServiceImpl implements UserService {
     public User getEntityById(long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new EcommException("user with given id is not exist." + id, HttpStatus.NOT_FOUND));
+    }
+
+    @Override
+    public List<AddressDTO> getUserAddresses(long userId) {
+        return addressService.getByUserId(userId);
     }
 }

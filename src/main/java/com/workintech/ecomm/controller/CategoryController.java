@@ -16,7 +16,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED) // 201 CREATED
+    @ResponseStatus(HttpStatus.CREATED)  // 201 CREATED
     public CategoryDTO save(@RequestBody CategoryDTO categoryDTO) {
         return categoryService.save(categoryDTO);
     }
