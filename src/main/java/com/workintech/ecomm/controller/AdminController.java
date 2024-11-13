@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/welcome")
-public class WelcomeController {
+@RequestMapping("/admin")
+public class AdminController {
 
     @GetMapping("/")
-    public String welcome(){
-        return "Welcome";
+    public String admin(){
+        return "This is admin area";
     }
 }

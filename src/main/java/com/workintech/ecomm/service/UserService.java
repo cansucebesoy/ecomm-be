@@ -4,6 +4,7 @@ import com.workintech.ecomm.dto.AddressDTO;
 import com.workintech.ecomm.dto.UserDTO;
 import com.workintech.ecomm.entity.Address;
 import com.workintech.ecomm.entity.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
