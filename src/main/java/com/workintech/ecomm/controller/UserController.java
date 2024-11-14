@@ -2,17 +2,16 @@ package com.workintech.ecomm.controller;
 
 import com.workintech.ecomm.dto.AddressDTO;
 import com.workintech.ecomm.dto.UserDTO;
-import com.workintech.ecomm.entity.User;
-import com.workintech.ecomm.service.AddressService;
 import com.workintech.ecomm.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@Validated   validated eklemeyi unutma
+@Validated
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor

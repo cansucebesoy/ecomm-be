@@ -4,20 +4,22 @@ import com.workintech.ecomm.dto.CategoryDTO;
 import com.workintech.ecomm.service.SubcategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Service
 @RequestMapping("/subcategory")
 @RequiredArgsConstructor
+@RestController
 public class SubcategoryController {
 
     private final SubcategoryService subcategoryService;
+
+    @GetMapping("/parentCategory/{parentCategoryId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CategoryDTO> getSubcategories(@PathVariable long parentCategoryId){
+        return subcategoryService.getSubcategories(parentCategoryId);
+    }
 
     @GetMapping("/{subcategoryId}")
     @ResponseStatus(HttpStatus.OK)
@@ -25,9 +27,4 @@ public class SubcategoryController {
         return subcategoryService.getParentCategory(subcategoryId);
     }
 
-    @GetMapping("/{parentCategoryId}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<CategoryDTO> getSubcategories(long parentCategoryId){
-        return subcategoryService.getSubcategories(parentCategoryId);
-    }
 }

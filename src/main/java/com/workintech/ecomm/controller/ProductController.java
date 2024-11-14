@@ -1,10 +1,10 @@
 package com.workintech.ecomm.controller;
 
 import com.workintech.ecomm.dto.ProductDTO;
-import com.workintech.ecomm.entity.Product;
 import com.workintech.ecomm.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/product")
 @RequiredArgsConstructor
+@Validated
 public class ProductController {
 
     private final ProductService productService;

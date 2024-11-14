@@ -2,6 +2,9 @@ package com.workintech.ecomm.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,22 +28,24 @@ public class User implements UserDetails {
     private long id;
 
     @Column(name = "first_name")
-    //@NotBlank(message = "İlk isim boş olamaz")
-    //@Size(min = 3, max=45, message = "İlk isim 3-45 arasında karakter içermelidir.")
+    @NotBlank(message = "İlk isim boş olamaz")
+    @Size(min = 3, max=45, message = "İlk isim 3-45 arasında karakter içermelidir.")
     private String firstName;
 
     @Column(name = "last_name")
-    //@NotBlank(message = "Soyisim boş olamaz")
-    //@Size(min = 2, max=45, message = "Soyisim 2-45 arasında karakter içermelidir.")
+    @NotBlank(message = "Soyisim boş olamaz")
+    @Size(min = 2, max=45, message = "Soyisim 2-45 arasında karakter içermelidir.")
     private String lastName;
 
     @Column(name = "email")
-    //@NotBlank(message = "email boş olamaz")
-    //@Size(min = 10, max=80, message = "email 10-80 arasında karakter içermelidir.")
-    //@Email(message = "Mail formatı bozuk.")
+    @NotBlank(message = "email boş olamaz")
+    @Size(min = 10, max=80, message = "email 10-80 arasında karakter içermelidir.")
+    @Email(message = "Mail formatı bozuk.")
     private String email;
 
     @Column(name = "password")
+    @NotBlank(message = "password boş olamaz")
+    @Size(min = 3, max=255, message = "password 2 - 255 arasında karakter içermelidir.")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
