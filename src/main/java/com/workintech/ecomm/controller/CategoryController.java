@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/category")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173")
 public class CategoryController {
     private final CategoryService categoryService;
 
@@ -39,6 +40,7 @@ public class CategoryController {
         return categoryService.update(categoryDTO);
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/{id}/product")
     @ResponseStatus(HttpStatus.OK) // 200 OK
     public List<ProductDTO> getCategoryProducts(@PathVariable long id) {

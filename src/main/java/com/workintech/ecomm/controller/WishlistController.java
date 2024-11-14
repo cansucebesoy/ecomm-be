@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/wishlist")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173")
 public class WishlistController {
     private final WishlistService wishlistService;
 
